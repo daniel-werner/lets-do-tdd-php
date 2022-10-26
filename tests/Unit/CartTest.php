@@ -11,6 +11,9 @@ class CartTest extends TestCase
     {
         $cart = new Cart();
 
+        $cart->addItem('P111', 'Pizza', 1, 110000);
+
+        $this->assertCount(1, $cart->getItems());
         $this->assertNotNull($cart);
     }
 }
