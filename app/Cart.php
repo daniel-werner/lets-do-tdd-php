@@ -27,7 +27,13 @@ class Cart
     {
         foreach($this->items as $index => $item) {
             if ($item['code'] === $code){
-                $this->items[$index]['quantity']--;
+                if ($item['quantity'] > 1){
+                    $this->items[$index]['quantity']--;
+                }
+                else {
+                    unset($this->items[$index]);
+                }
+
                 return;
             }
         }
