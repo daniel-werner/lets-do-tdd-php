@@ -21,6 +21,17 @@ class Cart
         $this->items = array_filter($this->items, fn($item) => $item['code'] !== $code);
     }
 
+    public function getTotal():int
+    {
+        $sum = 0;
+
+        foreach($this->items as $item) {
+            $sum += $item['price'];
+        }
+
+        return $sum;
+    }
+
     /**
      * @return array
      */
