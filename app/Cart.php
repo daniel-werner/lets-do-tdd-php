@@ -23,13 +23,7 @@ class Cart
 
     public function getTotal():int
     {
-        $sum = 0;
-
-        foreach($this->items as $item) {
-            $sum += $item['price'];
-        }
-
-        return $sum;
+        return array_reduce($this->items, fn($sum, $item) => $sum += $item['price'], 0 );
     }
 
     /**
