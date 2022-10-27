@@ -8,6 +8,13 @@ class Cart
 
     public function addItem(string $code, string $name, int $quantity, int $price)
     {
+        foreach($this->items as $index => $item) {
+            if ($item['code'] === $code){
+               $this->items[$index]['quantity'] += $quantity;
+               return;
+            }
+        }
+
         $this->items[] = [
             'code' => $code,
             'name' => $name,

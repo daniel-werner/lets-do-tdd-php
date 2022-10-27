@@ -17,6 +17,25 @@ class CartTest extends TestCase
         $this->assertNotNull($cart);
     }
 
+    public function testAddSameItemMutlipleTimesIncreasesQuantity()
+    {
+        $cart = new Cart();
+
+        $cart->addItem('P111', 'Pizza', 1, 110000);
+        $cart->addItem('P111', 'Pizza', 1, 110000);
+
+        $expected = [
+            [
+                'code' => 'P111',
+                'name' => 'Pizza',
+                'quantity' => 2,
+                'price' => 110000
+            ]
+        ];
+
+        $this->assertEquals($expected, $cart->getItems());
+    }
+
     public function testRemoveItemFromCart()
     {
         $cart = new Cart();
