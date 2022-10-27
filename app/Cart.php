@@ -25,7 +25,12 @@ class Cart
 
     public function removeItem(string $code)
     {
-        $this->items = array_filter($this->items, fn($item) => $item['code'] !== $code);
+        foreach($this->items as $index => $item) {
+            if ($item['code'] === $code){
+                $this->items[$index]['quantity']--;
+                return;
+            }
+        }
     }
 
     public function getTotal():int
