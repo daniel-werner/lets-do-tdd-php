@@ -18,12 +18,7 @@ class Cart
 
     public function removeItem(string $code)
     {
-        foreach ($this->items as $index => $item)
-        {
-            if ($item['code'] === $code){
-                unset($this->items[$index]);
-            }
-        }
+        $this->items = array_filter($this->items, fn($item) => $item['code'] !== $code);
     }
 
     /**
