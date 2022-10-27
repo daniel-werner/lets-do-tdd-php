@@ -23,7 +23,7 @@ class Cart
 
     public function getTotal():int
     {
-        return array_reduce($this->items, fn($sum, $item) => $sum += $item['price'], 0 );
+        return array_reduce($this->items, fn($sum, $item) => $sum += $item['quantity'] * $item['price'], 0 );
     }
 
     public function getItemCount(): int
