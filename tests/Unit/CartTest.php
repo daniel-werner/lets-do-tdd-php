@@ -35,4 +35,13 @@ class CartTest extends TestCase
 
         $this->assertEquals(120000, $cart->getTotal());
     }
+
+    public function testGetCartItemCount()
+    {
+        $cart = new Cart();
+        $cart->addItem('P111', 'Pizza', 1, 110000);
+        $cart->addItem('B111', 'Beer', 1, 10000);
+
+        $this->assertEquals(2, $cart->getItemCount());
+    }
 }

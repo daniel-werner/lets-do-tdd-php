@@ -26,6 +26,11 @@ class Cart
         return array_reduce($this->items, fn($sum, $item) => $sum += $item['price'], 0 );
     }
 
+    public function getItemCount(): int
+    {
+        return count($this->items);
+    }
+
     /**
      * @return array
      */
