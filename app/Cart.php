@@ -28,7 +28,7 @@ class Cart
 
     public function getItemCount(): int
     {
-        return count($this->items);
+        return array_reduce($this->items, fn($count, $item) => $count += $item['quantity'], 0 );
     }
 
     /**
