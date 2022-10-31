@@ -89,4 +89,12 @@ class CartTest extends TestCase
 
         $this->assertEquals(3, $cart->getItemCount());
     }
+
+    public  function testRemovingNotExistingCartItemThrowsException()
+    {
+        $this->expectException(\Exception::class);
+
+        $cart = new Cart();
+        $cart->removeItem('notExisting');
+    }
 }

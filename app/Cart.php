@@ -37,6 +37,8 @@ class Cart
                 return;
             }
         }
+
+        throw new \Exception('Item not found in cart! Code='. $code);
     }
 
     public function getTotal():int
